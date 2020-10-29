@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
+    @using ContentModels = Umbraco.Web.PublishedModels;
+    @{
+    Layout = "Master.cshtml";
+    }
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="inner">
+            <h1>@Model.Title</h1>
+            <p>@Model.WelcomeText</p>
+            <ul class="actions">
+                <li><a href="#galleries" class="button alt scrolly big">Continue</a></li>
+            </ul>
+        </div>
+    </section>
+
+    @Html.Partial("/Views/Partials/gallery.cshtml")

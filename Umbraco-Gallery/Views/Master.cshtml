@@ -1,0 +1,39 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Snapshot by TEMPLATED</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="umbraco/assets/css/main.css" />
+</head>
+<body>
+    <div class="page-wrap">
+
+        @Html.Partial("/Views/Partials/navigation.cshtml")
+
+        <section id="main">
+
+            @RenderBody()
+
+      
+            @Html.Partial("/Views/Partials/contact.cshtml")
+            @Html.Partial("/Views/Partials/footer.cshtml")
+
+        </section>
+    </div>
+    <!-- Scripts -->
+    <script src="umbraco/assets/js/jquery.min.js"></script>
+    <script src="umbraco/assets/js/jquery.poptrox.min.js"></script>
+    <script src="umbraco/assets/js/jquery.scrolly.min.js"></script>
+    <script src="umbraco/assets/js/skel.min.js"></script>
+    <script src="umbraco/assets/js/util.js"></script>
+    <script src="umbraco/assets/js/main.js"></script>
+
+</body>
+</html>
