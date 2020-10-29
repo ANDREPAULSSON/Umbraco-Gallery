@@ -1,6 +1,16 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ClientDependency.Core.Mvc
 @{
     Layout = null;
+    Html.RequiresCss("/umbraco/assets/css/main.css");
+
+    Html.RequiresJs("/umbraco/assets/js/jquery.min.js");
+    Html.RequiresJs("/umbraco/assets/js/jquery.poptrox.min.js");
+    Html.RequiresJs("/umbraco/assets/js/jquery.scrolly.min.js");
+    Html.RequiresJs("/umbraco/assets/js/skel.min.js");
+    Html.RequiresJs("/umbraco/assets/js/util.js");
+    Html.RequiresJs("/umbraco/assets/js/main.js");
+
 }
 
 <!DOCTYPE HTML>
@@ -10,7 +20,8 @@
     <title>Snapshot by TEMPLATED</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="umbraco/assets/css/main.css" />
+
+    @Html.RenderCssHere()
 </head>
 <body>
     <div class="page-wrap">
@@ -21,19 +32,13 @@
 
             @RenderBody()
 
-      
             @Html.Partial("/Views/Partials/contact.cshtml")
             @Html.Partial("/Views/Partials/footer.cshtml")
 
         </section>
     </div>
-    <!-- Scripts -->
-    <script src="umbraco/assets/js/jquery.min.js"></script>
-    <script src="umbraco/assets/js/jquery.poptrox.min.js"></script>
-    <script src="umbraco/assets/js/jquery.scrolly.min.js"></script>
-    <script src="umbraco/assets/js/skel.min.js"></script>
-    <script src="umbraco/assets/js/util.js"></script>
-    <script src="umbraco/assets/js/main.js"></script>
+
+    @Html.RenderJsHere()
 
 </body>
 </html>
