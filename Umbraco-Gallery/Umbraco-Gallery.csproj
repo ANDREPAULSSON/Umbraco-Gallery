@@ -2773,7 +2773,6 @@
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\Partials\navigation.cshtml" />
     <Content Include="Views\Partials\footer.cshtml" />
-    <Content Include="Views\Partials\contact.cshtml" />
     <Content Include="Views\Partials\gallery.cshtml" />
     <Content Include="Umbraco\assets\fonts\fontawesome-webfont.eot" />
     <Content Include="Umbraco\assets\fonts\fontawesome-webfont.ttf" />
@@ -2886,6 +2885,8 @@
     <Content Include="Umbraco\Views\web.config" />
     <Content Include="Views\GalleryItem.cshtml" />
     <Content Include="Views\Gallery.cshtml" />
+    <Content Include="Views\About.cshtml" />
+    <Content Include="Views\Partials\contactPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
