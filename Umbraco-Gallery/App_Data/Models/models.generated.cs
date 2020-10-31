@@ -17,8 +17,8 @@ using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.ModelsBuilder.Embedded;
 
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "491c17814aa8f9bd")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a29ac415f96f0a78")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.5")]
 
 namespace Umbraco.Web.PublishedModels
 {
@@ -582,22 +582,9 @@ namespace Umbraco.Web.PublishedModels
 		public static string GetMetaName(ISEocontrols that) => that.Value<string>("metaName");
 	}
 
-	// Mixin Content Type with alias "contactFormControls"
-	/// <summary>Contact Form Controls</summary>
-	public partial interface IContactFormControls : IPublishedContent
-	{
-		/// <summary>Error Message</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		global::System.Web.IHtmlString ErrorMessage { get; }
-
-		/// <summary>Success Message</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		global::System.Web.IHtmlString SuccessMessage { get; }
-	}
-
 	/// <summary>Contact Form Controls</summary>
 	[PublishedModel("contactFormControls")]
-	public partial class ContactFormControls : PublishedContentModel, IContactFormControls
+	public partial class ContactFormControls : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -625,22 +612,14 @@ namespace Umbraco.Web.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("errorMessage")]
-		public global::System.Web.IHtmlString ErrorMessage => GetErrorMessage(this);
-
-		/// <summary>Static getter for Error Message</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static global::System.Web.IHtmlString GetErrorMessage(IContactFormControls that) => that.Value<global::System.Web.IHtmlString>("errorMessage");
+		public global::System.Web.IHtmlString ErrorMessage => this.Value<global::System.Web.IHtmlString>("errorMessage");
 
 		///<summary>
 		/// Success Message: Enter the message to show on success
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("successMessage")]
-		public global::System.Web.IHtmlString SuccessMessage => GetSuccessMessage(this);
-
-		/// <summary>Static getter for Success Message</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static global::System.Web.IHtmlString GetSuccessMessage(IContactFormControls that) => that.Value<global::System.Web.IHtmlString>("successMessage");
+		public global::System.Web.IHtmlString SuccessMessage => this.Value<global::System.Web.IHtmlString>("successMessage");
 	}
 
 	// Mixin Content Type with alias "footerControls"
@@ -792,7 +771,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>About</summary>
 	[PublishedModel("about")]
-	public partial class About : PublishedContentModel, IAboutControls, IContactFormControls, IHeaderControls
+	public partial class About : PublishedContentModel, IContentControls, IHeaderControls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -816,60 +795,11 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Image 1: This is image 1
+		/// Main Content
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("image1")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image1 => global::Umbraco.Web.PublishedModels.AboutControls.GetImage1(this);
-
-		///<summary>
-		/// Image 1 Text: This is the text for image 1
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("image1Text")]
-		public string Image1Text => global::Umbraco.Web.PublishedModels.AboutControls.GetImage1Text(this);
-
-		///<summary>
-		/// Image 1 Title: This is the title for image 1
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("image1Title")]
-		public string Image1Title => global::Umbraco.Web.PublishedModels.AboutControls.GetImage1Title(this);
-
-		///<summary>
-		/// Image 2: This is image 2
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("image2")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image2 => global::Umbraco.Web.PublishedModels.AboutControls.GetImage2(this);
-
-		///<summary>
-		/// Image 2 Text: This is the text for image 2
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("image2Text")]
-		public string Image2Text => global::Umbraco.Web.PublishedModels.AboutControls.GetImage2Text(this);
-
-		///<summary>
-		/// Image 2 Title: This is the title for image 2
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("image2Title")]
-		public string Image2Title => global::Umbraco.Web.PublishedModels.AboutControls.GetImage2Title(this);
-
-		///<summary>
-		/// Error Message: Enter the message to show on error
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("errorMessage")]
-		public global::System.Web.IHtmlString ErrorMessage => global::Umbraco.Web.PublishedModels.ContactFormControls.GetErrorMessage(this);
-
-		///<summary>
-		/// Success Message: Enter the message to show on success
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("successMessage")]
-		public global::System.Web.IHtmlString SuccessMessage => global::Umbraco.Web.PublishedModels.ContactFormControls.GetSuccessMessage(this);
+		[ImplementPropertyType("mainContent")]
+		public global::Newtonsoft.Json.Linq.JToken MainContent => global::Umbraco.Web.PublishedModels.ContentControls.GetMainContent(this);
 
 		///<summary>
 		/// Subtitle: Enter a subtitle for this page
@@ -886,38 +816,9 @@ namespace Umbraco.Web.PublishedModels
 		public string Title => global::Umbraco.Web.PublishedModels.HeaderControls.GetTitle(this);
 	}
 
-	// Mixin Content Type with alias "aboutControls"
-	/// <summary>About Controls</summary>
-	public partial interface IAboutControls : IPublishedContent
-	{
-		/// <summary>Image 1</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image1 { get; }
-
-		/// <summary>Image 1 Text</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		string Image1Text { get; }
-
-		/// <summary>Image 1 Title</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		string Image1Title { get; }
-
-		/// <summary>Image 2</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image2 { get; }
-
-		/// <summary>Image 2 Text</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		string Image2Text { get; }
-
-		/// <summary>Image 2 Title</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		string Image2Title { get; }
-	}
-
 	/// <summary>About Controls</summary>
 	[PublishedModel("aboutControls")]
-	public partial class AboutControls : PublishedContentModel, IAboutControls
+	public partial class AboutControls : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -939,72 +840,6 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
-
-		///<summary>
-		/// Image 1: This is image 1
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("image1")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image1 => GetImage1(this);
-
-		/// <summary>Static getter for Image 1</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetImage1(IAboutControls that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("image1");
-
-		///<summary>
-		/// Image 1 Text: This is the text for image 1
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("image1Text")]
-		public string Image1Text => GetImage1Text(this);
-
-		/// <summary>Static getter for Image 1 Text</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static string GetImage1Text(IAboutControls that) => that.Value<string>("image1Text");
-
-		///<summary>
-		/// Image 1 Title: This is the title for image 1
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("image1Title")]
-		public string Image1Title => GetImage1Title(this);
-
-		/// <summary>Static getter for Image 1 Title</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static string GetImage1Title(IAboutControls that) => that.Value<string>("image1Title");
-
-		///<summary>
-		/// Image 2: This is image 2
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("image2")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image2 => GetImage2(this);
-
-		/// <summary>Static getter for Image 2</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetImage2(IAboutControls that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("image2");
-
-		///<summary>
-		/// Image 2 Text: This is the text for image 2
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("image2Text")]
-		public string Image2Text => GetImage2Text(this);
-
-		/// <summary>Static getter for Image 2 Text</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static string GetImage2Text(IAboutControls that) => that.Value<string>("image2Text");
-
-		///<summary>
-		/// Image 2 Title: This is the title for image 2
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("image2Title")]
-		public string Image2Title => GetImage2Title(this);
-
-		/// <summary>Static getter for Image 2 Title</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static string GetImage2Title(IAboutControls that) => that.Value<string>("image2Title");
 	}
 
 	/// <summary>Folder</summary>
