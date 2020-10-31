@@ -6,8 +6,8 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "6fae17045dddc51f")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f3ca5b72acc3f5a8")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 
 // FILE: models.generated.cs
@@ -38,7 +38,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>Home</summary>
 	[PublishedModel("home")]
-	public partial class Home : PublishedContentModel, IContentControls, IFooterControls, IHeaderControls, IMainImageControls, ISEocontrols
+	public partial class Home : PublishedContentModel, IFooterControls, IHeaderControls, IMainImageControls, ISEocontrols
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -62,13 +62,6 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Main Content
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("mainContent")]
-		public global::Newtonsoft.Json.Linq.JToken MainContent => global::Umbraco.Web.PublishedModels.ContentControls.GetMainContent(this);
-
-		///<summary>
 		/// Social Links: Enter the social links for the footer
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
@@ -83,7 +76,7 @@ namespace Umbraco.Web.PublishedModels
 		public string Subtitle => global::Umbraco.Web.PublishedModels.HeaderControls.GetSubtitle(this);
 
 		///<summary>
-		/// Title: Enter the title for the page. If this is empty the name of the page will be used.
+		/// Title: Enter the title for the page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("title")]
@@ -151,7 +144,7 @@ namespace Umbraco.Web.PublishedModels
 		public string Subtitle => global::Umbraco.Web.PublishedModels.HeaderControls.GetSubtitle(this);
 
 		///<summary>
-		/// Title: Enter the title for the page. If this is empty the name of the page will be used.
+		/// Title: Enter the title for the page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("title")]
@@ -217,6 +210,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("galleryItemDate")]
 		public global::System.DateTime GalleryItemDate => global::Umbraco.Web.PublishedModels.GalleryControls.GetGalleryItemDate(this);
+
+		///<summary>
+		/// Gallery Item media CssClass: e.g  "place"  "people"  "thing"  This is needed for jquery filter functionality .
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("galleryItemMediaClass")]
+		public string GalleryItemMediaClass => global::Umbraco.Web.PublishedModels.GalleryControls.GetGalleryItemMediaClass(this);
 
 		///<summary>
 		/// Main Image: Choose the main image
@@ -360,6 +360,10 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Gallery Item Date</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		global::System.DateTime GalleryItemDate { get; }
+
+		/// <summary>Gallery Item media CssClass</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		string GalleryItemMediaClass { get; }
 	}
 
 	/// <summary>Gallery Item Controls</summary>
@@ -397,6 +401,17 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Static getter for Gallery Item Date</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		public static global::System.DateTime GetGalleryItemDate(IGalleryControls that) => that.Value<global::System.DateTime>("galleryItemDate");
+
+		///<summary>
+		/// Gallery Item media CssClass: e.g  "place"  "people"  "thing"  This is needed for jquery filter functionality .
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("galleryItemMediaClass")]
+		public string GalleryItemMediaClass => GetGalleryItemMediaClass(this);
+
+		/// <summary>Static getter for Gallery Item media CssClass</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		public static string GetGalleryItemMediaClass(IGalleryControls that) => that.Value<string>("galleryItemMediaClass");
 	}
 
 	// Mixin Content Type with alias "headerControls"
@@ -449,7 +464,7 @@ namespace Umbraco.Web.PublishedModels
 		public static string GetSubtitle(IHeaderControls that) => that.Value<string>("subtitle");
 
 		///<summary>
-		/// Title: Enter the title for the page. If this is empty the name of the page will be used.
+		/// Title: Enter the title for the page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("title")]
@@ -748,7 +763,7 @@ namespace Umbraco.Web.PublishedModels
 		public string Subtitle => global::Umbraco.Web.PublishedModels.HeaderControls.GetSubtitle(this);
 
 		///<summary>
-		/// Title: Enter the title for the page. If this is empty the name of the page will be used.
+		/// Title: Enter the title for the page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("title")]
@@ -809,7 +824,7 @@ namespace Umbraco.Web.PublishedModels
 		public string Subtitle => global::Umbraco.Web.PublishedModels.HeaderControls.GetSubtitle(this);
 
 		///<summary>
-		/// Title: Enter the title for the page. If this is empty the name of the page will be used.
+		/// Title: Enter the title for the page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("title")]

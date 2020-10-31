@@ -33,7 +33,9 @@
             {
                 var image = item.Value<IPublishedContent>("mainImage");
                 var thumb = item.Value<IPublishedContent>("thumbnail");
-                <div class="media all people">
+                var cssFilter = @item.Value("galleryItemMediaClass");
+
+                <div class="media all @cssFilter">
                     <a href="@image.Url"><img src="@thumb.Url" alt="" title="@item.Name" /></a>
                 </div>
             }

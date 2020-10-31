@@ -959,6 +959,33 @@
     <Content Include="Umbraco\assets\img\transparent.png" />
     <Content Include="Umbraco\assets\img\uploader\upload-illustration.png" />
     <Content Include="Umbraco\assets\img\uploader\upload-illustration.svg" />
+    <Content Include="Umbraco\assets\Js\app.js" />
+    <Content Include="Umbraco\assets\Js\dualSelectBox.js" />
+    <Content Include="Umbraco\assets\Js\guiFunctions.js" />
+    <Content Include="Umbraco\assets\Js\init.js" />
+    <Content Include="Umbraco\assets\Js\install.loader.js" />
+    <Content Include="Umbraco\assets\Js\installer.app.js" />
+    <Content Include="Umbraco\assets\Js\jquery.min.js" />
+    <Content Include="Umbraco\assets\Js\jquery.poptrox.min.js" />
+    <Content Include="Umbraco\assets\Js\jquery.scrollex.min.js" />
+    <Content Include="Umbraco\assets\Js\jquery.scrolly.min.js" />
+    <Content Include="Umbraco\assets\Js\main.controller.js" />
+    <Content Include="Umbraco\assets\Js\main.js" />
+    <Content Include="Umbraco\assets\Js\navigation.controller.js" />
+    <Content Include="Umbraco\assets\Js\routes.js" />
+    <Content Include="Umbraco\assets\Js\skel.min.js" />
+    <Content Include="Umbraco\assets\Js\umbraco.controllers.js" />
+    <Content Include="Umbraco\assets\Js\umbraco.directives.js" />
+    <Content Include="Umbraco\assets\Js\umbraco.filters.js" />
+    <Content Include="Umbraco\assets\Js\umbraco.installer.js" />
+    <Content Include="Umbraco\assets\Js\umbraco.interceptors.js" />
+    <Content Include="Umbraco\assets\Js\umbraco.preview.js" />
+    <Content Include="Umbraco\assets\Js\umbraco.resources.js" />
+    <Content Include="Umbraco\assets\Js\umbraco.services.js" />
+    <Content Include="Umbraco\assets\Js\umbracoCheckKeys.js" />
+    <Content Include="Umbraco\assets\Js\UmbracoSpeechBubbleBackEnd.js" />
+    <Content Include="Umbraco\assets\Js\util.js" />
+    <Content Include="Umbraco\assets\Js\utilities.js" />
     <Content Include="Umbraco\Config\Lang\cs.xml" />
     <Content Include="Umbraco\Config\Lang\da.xml" />
     <Content Include="Umbraco\Config\Lang\de.xml" />
@@ -2883,10 +2910,10 @@
     <Content Include="Umbraco\Views\Default.cshtml" />
     <Content Include="Umbraco\Views\Preview\Index.cshtml" />
     <Content Include="Umbraco\Views\web.config" />
-    <Content Include="Views\GalleryItem.cshtml" />
     <Content Include="Views\Gallery.cshtml" />
     <Content Include="Views\About.cshtml" />
     <Content Include="Views\Partials\contactPartial.cshtml" />
+    <Content Include="Umbraco\assets\Js\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
