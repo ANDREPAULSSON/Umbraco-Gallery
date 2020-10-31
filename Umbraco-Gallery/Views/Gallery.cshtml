@@ -21,45 +21,23 @@
             </ul>
         </header>
 
+        @{
+            var selection = Umbraco.Content(Guid.Parse("f542dcc2-e262-45bf-9493-5e3b33273e62"))
+            .Children()
+            .Where(x => x.IsVisible())
+            .OrderByDescending(x => x.CreateDate);
+        }
+
         <div class="content">
-            <div class="media all people">
-                <a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt="" title="This right here is a caption." /></a>
-            </div>
-            <div class="media all place">
-                <a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt="" title="This right here is a caption." /></a>
-            </div>
-            <div class="media all thing">
-                <a href="images/fulls/09.jpg"><img src="images/thumbs/09.jpg" alt="" title="This right here is a caption." /></a>
-            </div>
-            <div class="media all people">
-                <a href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" title="This right here is a caption." /></a>
-            </div>
-            <div class="media all place">
-                <a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt="" title="This right here is a caption." /></a>
-            </div>
-            <div class="media all thing">
-                <a href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt="" title="This right here is a caption." /></a>
-            </div>
-            <div class="media all people">
-                <a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt="" title="This right here is a caption." /></a>
-            </div>
-            <div class="media all place">
-                <a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt="" title="This right here is a caption." /></a>
-            </div>
-            <div class="media all thing">
-                <a href="images/fulls/11.jpg"><img src="images/thumbs/11.jpg" alt="" title="This right here is a caption." /></a>
-            </div>
-            <div class="media all people">
-                <a href="images/fulls/04.jpg"><img src="images/thumbs/04.jpg" alt="" title="This right here is a caption." /></a>
-            </div>
-            <div class="media all place">
-                <a href="images/fulls/08.jpg"><img src="images/thumbs/08.jpg" alt="" title="This right here is a caption." /></a>
-            </div>
-            <div class="media all thing">
-                <a href="images/fulls/12.jpg"><img src="images/thumbs/12.jpg" alt="" title="This right here is a caption." /></a>
-            </div>
+            @foreach (var item in selection)
+            {
+                var image = item.Value<IPublishedContent>("mainImage");
+                var thumb = item.Value<IPublishedContent>("thumbnail");
+                <div class="media all people">
+                    <a href="@image.Url"><img src="@thumb.Url" alt="" title="@item.Name" /></a>
+                </div>
+            }
+
         </div>
     </div>
 </section>
-
-@*@Html.Partial("/Views/Partials/gallery.cshtml")*@

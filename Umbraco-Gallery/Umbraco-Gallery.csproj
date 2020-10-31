@@ -2773,7 +2773,7 @@
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\Partials\navigation.cshtml" />
     <Content Include="Views\Partials\footer.cshtml" />
-    <Content Include="Views\Partials\gallery.cshtml" />
+    <Content Include="Views\Partials\galleryPreview.cshtml" />
     <Content Include="Umbraco\assets\fonts\fontawesome-webfont.eot" />
     <Content Include="Umbraco\assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="Umbraco\assets\fonts\fontawesome-webfont.woff" />

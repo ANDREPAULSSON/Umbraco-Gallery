@@ -6,8 +6,8 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a29ac415f96f0a78")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.5")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "6fae17045dddc51f")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 
 // FILE: models.generated.cs
@@ -90,7 +90,7 @@ namespace Umbraco.Web.PublishedModels
 		public string Title => global::Umbraco.Web.PublishedModels.HeaderControls.GetTitle(this);
 
 		///<summary>
-		/// Main Image: Choose the main image for this page
+		/// Main Image: Choose the main image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("mainImage")]
@@ -120,7 +120,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>Gallery</summary>
 	[PublishedModel("gallery")]
-	public partial class Gallery : PublishedContentModel, IContentControls, IHeaderControls, ISEocontrols, IVisibilityControls
+	public partial class Gallery : PublishedContentModel, IHeaderControls, ISEocontrols, IVisibilityControls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -142,13 +142,6 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
-
-		///<summary>
-		/// Main Content
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("mainContent")]
-		public global::Newtonsoft.Json.Linq.JToken MainContent => global::Umbraco.Web.PublishedModels.ContentControls.GetMainContent(this);
 
 		///<summary>
 		/// Subtitle: Enter a subtitle for this page
@@ -195,7 +188,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>Gallery Item</summary>
 	[PublishedModel("galleryItem")]
-	public partial class GalleryItem : PublishedContentModel, IGalleryControls, IHeaderControls, IMainImageControls, ISEocontrols, IVisibilityControls
+	public partial class GalleryItem : PublishedContentModel, IGalleryControls, IMainImageControls, ISEocontrols, IThumbnailControls, IVisibilityControls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -226,21 +219,7 @@ namespace Umbraco.Web.PublishedModels
 		public global::System.DateTime GalleryItemDate => global::Umbraco.Web.PublishedModels.GalleryControls.GetGalleryItemDate(this);
 
 		///<summary>
-		/// Subtitle: Enter a subtitle for this page
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("subtitle")]
-		public string Subtitle => global::Umbraco.Web.PublishedModels.HeaderControls.GetSubtitle(this);
-
-		///<summary>
-		/// Title: Enter the title for the page. If this is empty the name of the page will be used.
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("title")]
-		public string Title => global::Umbraco.Web.PublishedModels.HeaderControls.GetTitle(this);
-
-		///<summary>
-		/// Main Image: Choose the main image for this page
+		/// Main Image: Choose the main image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("mainImage")]
@@ -266,6 +245,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("metaName")]
 		public string MetaName => global::Umbraco.Web.PublishedModels.SEocontrols.GetMetaName(this);
+
+		///<summary>
+		/// Thumbnail: Choose thumbnail
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("thumbnail")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Thumbnail => global::Umbraco.Web.PublishedModels.ThumbnailControls.GetThumbnail(this);
 
 		///<summary>
 		/// Umbraco Navi Hide: Check this box if you want to hide this page from the navigation and search results.
@@ -509,7 +495,7 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Main Image: Choose the main image for this page
+		/// Main Image: Choose the main image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("mainImage")]
@@ -769,7 +755,7 @@ namespace Umbraco.Web.PublishedModels
 		public string Title => global::Umbraco.Web.PublishedModels.HeaderControls.GetTitle(this);
 
 		///<summary>
-		/// Main Image: Choose the main image for this page
+		/// Main Image: Choose the main image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("mainImage")]
@@ -830,30 +816,50 @@ namespace Umbraco.Web.PublishedModels
 		public string Title => global::Umbraco.Web.PublishedModels.HeaderControls.GetTitle(this);
 	}
 
-	/// <summary>About Controls</summary>
-	[PublishedModel("aboutControls")]
-	public partial class AboutControls : PublishedContentModel
+	// Mixin Content Type with alias "thumbnailControls"
+	/// <summary>Thumbnail Controls</summary>
+	public partial interface IThumbnailControls : IPublishedContent
+	{
+		/// <summary>Thumbnail</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		global::Umbraco.Core.Models.PublishedContent.IPublishedContent Thumbnail { get; }
+	}
+
+	/// <summary>Thumbnail Controls</summary>
+	[PublishedModel("thumbnailControls")]
+	public partial class ThumbnailControls : PublishedContentModel, IThumbnailControls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public new const string ModelTypeAlias = "aboutControls";
+		public new const string ModelTypeAlias = "thumbnailControls";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<AboutControls, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ThumbnailControls, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public AboutControls(IPublishedContent content)
+		public ThumbnailControls(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Thumbnail: Choose thumbnail
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("thumbnail")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Thumbnail => GetThumbnail(this);
+
+		/// <summary>Static getter for Thumbnail</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetThumbnail(IThumbnailControls that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("thumbnail");
 	}
 
 	/// <summary>Folder</summary>
