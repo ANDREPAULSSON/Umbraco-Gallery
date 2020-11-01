@@ -318,7 +318,6 @@
     <Content Include="images\thumbs\10.jpg" />
     <Content Include="images\thumbs\11.jpg" />
     <Content Include="images\thumbs\12.jpg" />
-    <Content Include="index.html" />
     <Content Include="Umbraco\assets\css\canvasdesigner.css" />
     <Content Include="Umbraco\assets\css\font-awesome.min.css" />
     <Content Include="Umbraco\assets\css\installer.css" />
