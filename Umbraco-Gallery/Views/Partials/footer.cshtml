@@ -1,13 +1,33 @@
-﻿@inherits UmbracoViewPage
+﻿@using Umbraco.Web.Models
+@inherits UmbracoViewPage
 
+@{
+    var homePage = Model.AncestorOrSelf<Home>();
+    var socialLinks = homePage.Value<IEnumerable<IPublishedElement>>("socialLinks");
+}
 <!-- Footer -->
 <footer id="footer">
     <div class="copyright">
-        <ul class="icons">
-            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-        </ul>
-        &copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
+        @if (socialLinks != null && socialLinks.Any())
+        {
+            <ul class="icons">
+                @foreach (var item in socialLinks)
+                {
+                    var link = item.Value<Link>("link");
+                    var iconCLass = item.Value<string>("iconClass");
+                    <li><a href="@link.Url" target="@link.Target" class="@iconCLass"><span class="label">Twitter</span></a></li>
+                }
+            </ul>
+        }
+        else
+        {
+            <ul class="icons">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            </ul>
+        }
+
+        &copy; @Umbraco.GetDictionaryValue("Footer.CopyrightName") | Design: <a href="https://templated.co/" target="_blank">TEMPLATED</a>. Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>.
     </div>
 </footer>
