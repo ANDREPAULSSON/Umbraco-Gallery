@@ -4,6 +4,11 @@
     Layout = "Master.cshtml";
 }
 
+@*Special header for the sub-pages*@
+<header id="header">
+    <div><span>@Model.Subtitle</span></div>
+</header>
+
 <!-- Gallery -->
 <section id="galleries">
 
@@ -22,10 +27,10 @@
         </header>
 
         @{
-            var selection = Umbraco.Content(Guid.Parse("f542dcc2-e262-45bf-9493-5e3b33273e62"))
-            .Children()
-            .Where(x => x.IsVisible())
-            .OrderByDescending(x => x.CreateDate);
+            var selection = Umbraco.Content(Guid.Parse("9f42fb70-2579-468f-b760-1559e78ea0d9"))
+             .Children()
+             .Where(x => x.IsVisible())
+             .OrderByDescending(x => x.CreateDate);
         }
 
         <div class="content">
@@ -33,7 +38,7 @@
             {
                 var image = item.Value<IPublishedContent>("mainImage");
                 var thumb = item.Value<IPublishedContent>("thumbnail");
-                var cssFilter = @item.Value("galleryItemMediaClass");
+                var cssFilter = @item.Value("GalleryItemType");
 
                 <div class="media all @cssFilter">
                     <a href="@image.Url"><img src="@thumb.Url" alt="" title="@item.Name" /></a>

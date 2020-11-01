@@ -6,8 +6,8 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f3ca5b72acc3f5a8")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "9ad83960f8c4463")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
 // FILE: models.generated.cs
@@ -38,7 +38,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>Home</summary>
 	[PublishedModel("home")]
-	public partial class Home : PublishedContentModel, IFooterControls, IHeaderControls, IMainImageControls, ISEocontrols
+	public partial class Home : PublishedContentModel, IFooterControls, IHeaderControls, IMainImageControls, INavigationIconControls, ISEocontrols
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -90,6 +90,20 @@ namespace Umbraco.Web.PublishedModels
 		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent MainImage => global::Umbraco.Web.PublishedModels.MainImageControls.GetMainImage(this);
 
 		///<summary>
+		/// Thumbnail: Chose the thumbnail
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("thumbnail")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Thumbnail => global::Umbraco.Web.PublishedModels.MainImageControls.GetThumbnail(this);
+
+		///<summary>
+		/// Icon: Select the Icon you want to use for this page In the navigation menu. --based on fa-icons
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("icon")]
+		public string Icon => global::Umbraco.Web.PublishedModels.NavigationIconControls.GetIcon(this);
+
+		///<summary>
 		/// Meta Description: Enter the meta description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
@@ -113,7 +127,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>Gallery</summary>
 	[PublishedModel("gallery")]
-	public partial class Gallery : PublishedContentModel, IHeaderControls, ISEocontrols, IVisibilityControls
+	public partial class Gallery : PublishedContentModel, IHeaderControls, INavigationIconControls, ISEocontrols, IVisibilityControls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -151,6 +165,13 @@ namespace Umbraco.Web.PublishedModels
 		public string Title => global::Umbraco.Web.PublishedModels.HeaderControls.GetTitle(this);
 
 		///<summary>
+		/// Icon: Select the Icon you want to use for this page In the navigation menu. --based on fa-icons
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("icon")]
+		public string Icon => global::Umbraco.Web.PublishedModels.NavigationIconControls.GetIcon(this);
+
+		///<summary>
 		/// Meta Description: Enter the meta description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
@@ -181,7 +202,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>Gallery Item</summary>
 	[PublishedModel("galleryItem")]
-	public partial class GalleryItem : PublishedContentModel, IGalleryControls, IMainImageControls, ISEocontrols, IThumbnailControls, IVisibilityControls
+	public partial class GalleryItem : PublishedContentModel, IGalleryControls, IMainImageControls, ISEocontrols, IVisibilityControls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -212,11 +233,11 @@ namespace Umbraco.Web.PublishedModels
 		public global::System.DateTime GalleryItemDate => global::Umbraco.Web.PublishedModels.GalleryControls.GetGalleryItemDate(this);
 
 		///<summary>
-		/// Gallery Item media CssClass: e.g  "place"  "people"  "thing"  This is needed for jquery filter functionality .
+		/// Gallery Item type: Select the corresponding type of the item.  e.g "place" if the item is a place  This is needed for jquery filter functionality .
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("galleryItemMediaClass")]
-		public string GalleryItemMediaClass => global::Umbraco.Web.PublishedModels.GalleryControls.GetGalleryItemMediaClass(this);
+		[ImplementPropertyType("GalleryItemType")]
+		public string GalleryItemType => global::Umbraco.Web.PublishedModels.GalleryControls.GetGalleryItemType(this);
 
 		///<summary>
 		/// Main Image: Choose the main image
@@ -224,6 +245,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("mainImage")]
 		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent MainImage => global::Umbraco.Web.PublishedModels.MainImageControls.GetMainImage(this);
+
+		///<summary>
+		/// Thumbnail: Chose the thumbnail
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("thumbnail")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Thumbnail => global::Umbraco.Web.PublishedModels.MainImageControls.GetThumbnail(this);
 
 		///<summary>
 		/// Meta Description: Enter the meta description
@@ -245,13 +273,6 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("metaName")]
 		public string MetaName => global::Umbraco.Web.PublishedModels.SEocontrols.GetMetaName(this);
-
-		///<summary>
-		/// Thumbnail: Choose thumbnail
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("thumbnail")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Thumbnail => global::Umbraco.Web.PublishedModels.ThumbnailControls.GetThumbnail(this);
 
 		///<summary>
 		/// Umbraco Navi Hide: Check this box if you want to hide this page from the navigation and search results.
@@ -361,9 +382,9 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		global::System.DateTime GalleryItemDate { get; }
 
-		/// <summary>Gallery Item media CssClass</summary>
+		/// <summary>Gallery Item type</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		string GalleryItemMediaClass { get; }
+		string GalleryItemType { get; }
 	}
 
 	/// <summary>Gallery Item Controls</summary>
@@ -403,15 +424,15 @@ namespace Umbraco.Web.PublishedModels
 		public static global::System.DateTime GetGalleryItemDate(IGalleryControls that) => that.Value<global::System.DateTime>("galleryItemDate");
 
 		///<summary>
-		/// Gallery Item media CssClass: e.g  "place"  "people"  "thing"  This is needed for jquery filter functionality .
+		/// Gallery Item type: Select the corresponding type of the item.  e.g "place" if the item is a place  This is needed for jquery filter functionality .
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("galleryItemMediaClass")]
-		public string GalleryItemMediaClass => GetGalleryItemMediaClass(this);
+		[ImplementPropertyType("GalleryItemType")]
+		public string GalleryItemType => GetGalleryItemType(this);
 
-		/// <summary>Static getter for Gallery Item media CssClass</summary>
+		/// <summary>Static getter for Gallery Item type</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static string GetGalleryItemMediaClass(IGalleryControls that) => that.Value<string>("galleryItemMediaClass");
+		public static string GetGalleryItemType(IGalleryControls that) => that.Value<string>("GalleryItemType");
 	}
 
 	// Mixin Content Type with alias "headerControls"
@@ -482,6 +503,10 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Main Image</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		global::Umbraco.Core.Models.PublishedContent.IPublishedContent MainImage { get; }
+
+		/// <summary>Thumbnail</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		global::Umbraco.Core.Models.PublishedContent.IPublishedContent Thumbnail { get; }
 	}
 
 	/// <summary>Main Image Controls</summary>
@@ -519,6 +544,17 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Static getter for Main Image</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetMainImage(IMainImageControls that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("mainImage");
+
+		///<summary>
+		/// Thumbnail: Chose the thumbnail
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("thumbnail")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Thumbnail => GetThumbnail(this);
+
+		/// <summary>Static getter for Thumbnail</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetThumbnail(IMainImageControls that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("thumbnail");
 	}
 
 	// Mixin Content Type with alias "sEOControls"
@@ -777,6 +813,13 @@ namespace Umbraco.Web.PublishedModels
 		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent MainImage => global::Umbraco.Web.PublishedModels.MainImageControls.GetMainImage(this);
 
 		///<summary>
+		/// Thumbnail: Chose the thumbnail
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("thumbnail")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Thumbnail => global::Umbraco.Web.PublishedModels.MainImageControls.GetThumbnail(this);
+
+		///<summary>
 		/// Umbraco Navi Hide: Check this box if you want to hide this page from the navigation and search results.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
@@ -786,7 +829,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>About</summary>
 	[PublishedModel("about")]
-	public partial class About : PublishedContentModel, IContentControls, IHeaderControls
+	public partial class About : PublishedContentModel, IContentControls, IHeaderControls, INavigationIconControls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -829,52 +872,59 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("title")]
 		public string Title => global::Umbraco.Web.PublishedModels.HeaderControls.GetTitle(this);
-	}
 
-	// Mixin Content Type with alias "thumbnailControls"
-	/// <summary>Thumbnail Controls</summary>
-	public partial interface IThumbnailControls : IPublishedContent
-	{
-		/// <summary>Thumbnail</summary>
+		///<summary>
+		/// Icon: Select the Icon you want to use for this page In the navigation menu. --based on fa-icons
+		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		global::Umbraco.Core.Models.PublishedContent.IPublishedContent Thumbnail { get; }
+		[ImplementPropertyType("icon")]
+		public string Icon => global::Umbraco.Web.PublishedModels.NavigationIconControls.GetIcon(this);
 	}
 
-	/// <summary>Thumbnail Controls</summary>
-	[PublishedModel("thumbnailControls")]
-	public partial class ThumbnailControls : PublishedContentModel, IThumbnailControls
+	// Mixin Content Type with alias "navigationIconControls"
+	/// <summary>Navigation Icon Controls</summary>
+	public partial interface INavigationIconControls : IPublishedContent
+	{
+		/// <summary>Icon</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		string Icon { get; }
+	}
+
+	/// <summary>Navigation Icon Controls</summary>
+	[PublishedModel("navigationIconControls")]
+	public partial class NavigationIconControls : PublishedContentModel, INavigationIconControls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public new const string ModelTypeAlias = "thumbnailControls";
+		public new const string ModelTypeAlias = "navigationIconControls";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ThumbnailControls, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NavigationIconControls, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public ThumbnailControls(IPublishedContent content)
+		public NavigationIconControls(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Thumbnail: Choose thumbnail
+		/// Icon: Select the Icon you want to use for this page In the navigation menu. --based on fa-icons
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("thumbnail")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Thumbnail => GetThumbnail(this);
+		[ImplementPropertyType("icon")]
+		public string Icon => GetIcon(this);
 
-		/// <summary>Static getter for Thumbnail</summary>
+		/// <summary>Static getter for Icon</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetThumbnail(IThumbnailControls that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("thumbnail");
+		public static string GetIcon(INavigationIconControls that) => that.Value<string>("icon");
 	}
 
 	/// <summary>Folder</summary>

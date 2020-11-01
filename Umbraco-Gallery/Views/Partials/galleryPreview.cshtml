@@ -10,7 +10,8 @@
         </header>
         <div class="content">
             @{
-                var selection = Umbraco.Content(Guid.Parse("f542dcc2-e262-45bf-9493-5e3b33273e62"))
+
+                var selection = Umbraco.Content(Guid.Parse("9f42fb70-2579-468f-b760-1559e78ea0d9"))
                 .Children()
                 .Where(x => x.IsVisible())
                 .OrderByDescending(x => x.CreateDate);
