@@ -2727,8 +2727,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Composing\RegisterServicesComposer.cs" />
     <Compile Include="Controllers\ContactSurfaceController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ISmtpService.cs" />
+    <Compile Include="Services\SmtpService.cs" />
     <Compile Include="ViewModels\ContactViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
