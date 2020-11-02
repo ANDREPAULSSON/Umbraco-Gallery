@@ -1,6 +1,18 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.About>
+@using ClientDependency.Core.Mvc
 @{
     Layout = "Master.cshtml";
+
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js");
+    Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js");
+
+    Html.RequiresJs("/scripts/jquery.validate.min.js");
+    Html.RequiresJs("/scripts/jquery.validate.unobtrusive.min.js");
+    Html.RequiresJs("/scripts/jquery.unobtrusive-ajax.min.js");
+    Html.RequiresJs("/scripts/contactForm.js");
 }
 
 @*Special header for the sub-pages*@
@@ -8,13 +20,14 @@
     <div><span>@Model.Subtitle</span></div>
 </header>
 
-    <div class="inner">
+<div class="inner">
 
-        <header>
-            <h1>@Model.Title</h1>
-        </header>
+    <header>
+        <h1>@Model.Title</h1>
+    </header>
 
-        @Html.GetGridHtml(Model, "mainContent")
-    </div>
-    <!-- Contact -->
-    @Html.Partial("/Views/Partials/contactPartial.cshtml")
+    @Html.GetGridHtml(Model, "mainContent")
+</div>
+
+
+@{Html.RenderAction("RenderForm", "ContactSurface"); }
