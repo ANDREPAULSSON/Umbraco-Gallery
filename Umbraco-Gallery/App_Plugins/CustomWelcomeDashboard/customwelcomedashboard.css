@@ -1,0 +1,73 @@
+﻿.welcome-dashboard{
+    max-width: 1200px;
+}
+.welcome-message {
+    text-align: center;
+    padding: 10px;
+    margin: 10px 0;
+    background: #F8F8F8;
+}
+.welcome-message h1{
+     font-size: 2.5em;
+    color: #363636;
+    line-height: 1.3em;
+    text-align: center;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.welcome-message p{
+    font-size: 1.2em;
+    color: #666666;
+    text-align: center;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6em;
+}
+.welcome-message a{
+    font-weight: bold;
+    opacity: 0.7;
+}
+.recently-edited-container {
+    background: #F8F8F8;
+    padding: 3em;
+    margin-top: 1.5em;
+}
+.recently-edited {
+    padding: 10px;
+    margin-left: 1em;
+
+}
+.recently-edited h2{
+    font-size: 1.5em;
+    line-height: 1.6em;
+    margin: 0px;
+    font-weight: bold;
+}
+.recently-edited ul li{
+    font-size: 1.1em;
+    color: #666666;
+    line-height: 1.6em;
+}
+.add-image-container {
+    margin-top: 1.5em;
+    display: flex;
+}
+.toolbox-container {
+    background: #F8F8F8;
+    padding: 2em;
+}
+.add-image-text{
+    margin-top: .3em;
+}
+.add-image {
+    display: flex;
+    align-items: center;
+}
+.add-image i{
+    font-size: 1.5em;
+    margin-right: .4em;
+}

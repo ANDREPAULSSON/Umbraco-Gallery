@@ -270,6 +270,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\CustomWelcomeDashboard\customwelcomedashboard.controller.js" />
+    <Content Include="App_Plugins\CustomWelcomeDashboard\customwelcomedashboard.css" />
+    <Content Include="App_Plugins\CustomWelcomeDashboard\lang\en-US.xml" />
+    <Content Include="App_Plugins\CustomWelcomeDashboard\WelcomeDashboard.html" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\Lang\cs-CZ.user.xml" />
     <Content Include="config\Lang\da-DK.user.xml" />
@@ -291,6 +295,7 @@
     <Content Include="config\Lang\zh-CN.user.xml" />
     <Content Include="config\logviewer.searches.config.js" />
     <Content Include="Global.asax" />
+    <Content Include="App_Plugins\CustomWelcomeDashboard\package.manifest" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
