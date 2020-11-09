@@ -1,9 +1,10 @@
 ﻿@inherits UmbracoViewPage
 
 @{
-var site = Model.Root();
-var siteRootIcon = site.Value("icon");
-var selection = site.Children.Where(x => x.IsVisible());
+    var site = Model.Root();
+    var siteRootIcon = site.Value("icon");
+    var selection = site.Children.Where(x => x.IsVisible());
+    var myUser = Membership.GetUser();
 }
 
 <nav id="nav">
@@ -17,8 +18,7 @@ var selection = site.Children.Where(x => x.IsVisible());
         @if (Umbraco.MemberIsLoggedOn())
         {
             using (Html.BeginUmbracoForm("SubmitLogout", "Member", FormMethod.Post, new { id = "logout" }))
-            {
-                var myUser = Membership.GetUser();
+            {             
                 if (myUser != null)
                 {
                     @:<li>
