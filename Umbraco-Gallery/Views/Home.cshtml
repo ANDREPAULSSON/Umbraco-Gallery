@@ -15,6 +15,13 @@
             <ul class="actions">
                 <li><a href="#galleries" class="button alt scrolly big">Continue</a></li>
             </ul>
+            @{
+                var myUser = Membership.GetUser();
+                if (myUser != null)
+                {
+                    <span class="home-screen-user"><icon class="fa fa-user" style="margin-right:.3em;"></icon>@myUser.UserName</span>
+                }
+            }
         </div>
     </section>
 

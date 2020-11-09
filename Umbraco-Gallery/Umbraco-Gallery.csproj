@@ -2888,6 +2888,7 @@
     <Content Include="Views\Partials\_Login.cshtml" />
     <Content Include="Views\MembersOnly.cshtml" />
     <Content Include="Views\MembersOnlyItem.cshtml" />
+    <Content Include="Views\AccessDenied.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

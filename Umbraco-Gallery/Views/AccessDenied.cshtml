@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Login>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.AccessDenied>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
     Layout = "Master.cshtml";
@@ -13,12 +13,11 @@
     <header>
         <h1>@Model.Title</h1>
     </header>
-
     <section>
         @Html.GetGridHtml(Model, "mainContent")
     </section>
-    @{
-        Html.RenderAction("RenderLogin", "Member");
-    }
-    <p><a href="/register">Register a new account</a></p>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+
 </div>
+<div class="fill-page" style="height:18em;"></div>
