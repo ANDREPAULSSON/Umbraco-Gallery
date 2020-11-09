@@ -2734,10 +2734,12 @@
   <ItemGroup>
     <Compile Include="Composing\RegisterServicesComposer.cs" />
     <Compile Include="Controllers\ContactSurfaceController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ISmtpService.cs" />
     <Compile Include="Services\SmtpService.cs" />
     <Compile Include="ViewModels\ContactViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="config\imageprocessor\security.config" />
@@ -2764,9 +2766,9 @@
     <Content Include="Views\Partials\BlockList\Default.cshtml" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Master.cshtml" />
-    <Content Include="Views\Partials\navigation.cshtml" />
-    <Content Include="Views\Partials\footer.cshtml" />
-    <Content Include="Views\Partials\galleryPreview.cshtml" />
+    <Content Include="Views\Partials\_Navigation.cshtml" />
+    <Content Include="Views\Partials\_Footer.cshtml" />
+    <Content Include="Views\Partials\_GalleryPreview.cshtml" />
     <Content Include="Umbraco\assets\fonts\fontawesome-webfont.eot" />
     <Content Include="Umbraco\assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="Umbraco\assets\fonts\fontawesome-webfont.woff" />
@@ -2880,6 +2882,12 @@
     <Content Include="Umbraco\assets\Js\web.config" />
     <Content Include="Views\Partials\Contact\contactForm.cshtml" />
     <Content Include="Views\Partials\Contact\result.cshtml" />
+    <Content Include="Views\Partials\_Register.cshtml" />
+    <Content Include="Views\Login.cshtml" />
+    <Content Include="Views\Register.cshtml" />
+    <Content Include="Views\Partials\_Login.cshtml" />
+    <Content Include="Views\MembersOnly.cshtml" />
+    <Content Include="Views\MembersOnlyItem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

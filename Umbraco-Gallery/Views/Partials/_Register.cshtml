@@ -1,0 +1,92 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using System.Web.Mvc.Html
+@using ClientDependency.Core.Mvc
+@using Umbraco.Web
+@using Umbraco.Web.Controllers
+@using Umbraco.Core.Services
+
+
+@{
+    var registerModel = Members.CreateRegistrationModel();
+    registerModel.UsernameIsEmail = false;
+
+    var success = TempData["FormSuccess"] != null;
+}
+
+
+@if (success)
+{
+    var member = Membership.GetUser();
+    IMemberService memberService = Services.MemberService;
+    memberService.AssignRole((int)member.ProviderUserKey, "ActiveMembers");
+
+    <p>Registration succeeded.</p>
+}
+else
+{
+<div class="column">
+    @using (Html.BeginUmbracoForm<UmbRegisterController>
+        ("HandleRegisterMember"))
+    {
+        <fieldset>
+            @Html.ValidationSummary("registerModel", true)
+
+            <div class="field half first">
+                <label for="name">Username</label>
+                @Html.ValidationMessageFor(m => registerModel.Username)
+                @Html.TextBoxFor(m => registerModel.Username, new { @class = "form-control", placeholder = "Username" })
+
+            </div>
+            <div class="field half first">
+                <label for="name">Name</label>
+                @Html.ValidationMessageFor(m => registerModel.Name)
+                @Html.TextBoxFor(m => registerModel.Name, new { @class = "form-control", placeholder = "Name" })
+
+            </div>
+
+            <div class="field half first">
+                <label for="name">Email</label>
+                @Html.ValidationMessageFor(m => registerModel.Email)
+                @Html.TextBoxFor(m => registerModel.Email, new { @class = "form-control", placeholder = "Email" })
+
+            </div>
+
+            <div class="field half first">
+                <label for="name">Password</label>
+                @Html.ValidationMessageFor(m => registerModel.Password)
+                @Html.TextBoxFor(m => registerModel.Password, new { @class = "form-control", placeholder = "Password" })
+
+            </div>
+
+            @if (registerModel.MemberProperties != null)
+            {
+                @*
+                    It will only displays properties marked as "Member can edit" on the "Info" tab of the Member Type.
+                *@
+                for (var i = 0; i < registerModel.MemberProperties.Count; i++)
+                {
+                    @Html.LabelFor(m => registerModel.MemberProperties[i].Value, registerModel.MemberProperties[i].Name)
+                    @*
+                        By default this will render a textbox but if you want to change the editor template for this property you can
+                        easily change it. For example, if you wanted to render a custom editor for this field called "MyEditor" you would
+                        create a file at ~/Views/Shared/EditorTemplates/MyEditor.cshtml", then you will change the next line of code to
+                        render your specific editor template like:
+                        @Html.EditorFor(m => registerModel.MemberProperties[i].Value, "MyEditor")
+                    *@
+                    @Html.EditorFor(m => registerModel.MemberProperties[i].Value)
+                    @Html.HiddenFor(m => registerModel.MemberProperties[i].Alias)
+                    <br />
+                }
+            }
+
+            @Html.HiddenFor(m => registerModel.MemberTypeAlias)
+            @Html.HiddenFor(m => registerModel.RedirectUrl)
+            @Html.HiddenFor(m => registerModel.UsernameIsEmail)
+
+        <ul class="actions">
+            <li><input value="Register" class="button" type="submit"></li>
+        </ul>
+        </fieldset>
+    }
+</div>
+}

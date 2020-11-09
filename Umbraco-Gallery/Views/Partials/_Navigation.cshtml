@@ -1,0 +1,31 @@
+﻿@inherits UmbracoViewPage
+
+@{
+var site = Model.Root();
+var siteRootIcon = site.Value("icon");
+var selection = site.Children.Where(x => x.IsVisible());
+}
+
+<nav id="nav">
+    <ul>
+        <li><a class="nav-link @Html.Raw(Model.Id == site.Id ? "navi-link active" : "")" href="@site.Url"><span class="@siteRootIcon"></span></a></li>
+        @foreach (var item in selection)
+        {
+            var icon = item.Value("icon");
+            <li><a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link active" : null)" href="@item.Url"><span class="@icon"></span></a></li>
+        }
+        @if (Umbraco.MemberIsLoggedOn())
+        {
+            using (Html.BeginUmbracoForm("SubmitLogout", "Member", FormMethod.Post, new { id = "logout" }))
+            {
+                var myUser = Membership.GetUser();
+                if (myUser != null)
+                {
+                    @:<li>
+                        @:<a onclick="javascript:$('#logout').submit();" class="nav-link" href="#logout"><span style="transform: rotate(160deg)" class="fa fa-sign-out"></span></a>
+                    @:</li>
+                }
+            }
+        }
+    </ul>
+</nav>

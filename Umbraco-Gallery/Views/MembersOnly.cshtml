@@ -1,0 +1,50 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.MembersOnly>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "Master.cshtml";
+}
+
+@*Special header for the sub-pages*@
+<header id="header">
+    <div><span>@Model.Subtitle</span></div>
+</header>
+
+<!-- Gallery -->
+<section id="galleries">
+
+    <!-- Photo Galleries -->
+    <div class="gallery">
+
+        <!-- Filters -->
+        <header>
+            <h1>@Model.Title</h1>
+            <ul class="tabs">
+                <li><a href="#" data-tag="all" class="button active">All</a></li>
+                <li><a href="#" data-tag="people" class="button">People</a></li>
+                <li><a href="#" data-tag="place" class="button">Places</a></li>
+                <li><a href="#" data-tag="thing" class="button">Things</a></li>
+            </ul>
+        </header>
+
+        @{
+     var selection = Umbraco.Content(Guid.Parse("0e984227-d526-465c-aaa7-390f89d6fa17"))
+     .Children()
+     .Where(x => x.IsVisible())
+     .OrderByDescending(x => x.CreateDate);
+        }
+
+        <div class="content">
+            @foreach (var item in selection)
+            {
+                var image = item.Value<IPublishedContent>("mainImage");
+                var thumb = item.Value<IPublishedContent>("thumbnail");
+                var cssFilter = @item.Value("mOItemType");
+
+                <div class="media all @cssFilter">
+                    <a href="@image.Url"><img src="@thumb.Url" alt="" title="@item.Name" /></a>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

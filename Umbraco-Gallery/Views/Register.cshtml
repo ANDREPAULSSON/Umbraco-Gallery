@@ -1,0 +1,21 @@
+﻿@inherits UmbracoViewPage<ContentModels.Register>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "Master.cshtml";
+}
+
+
+<header id="header">
+    <div><span>@Model.Subtitle</span></div>
+</header>
+
+<div class="inner">
+
+    <header>
+        <h1>@Model.Title</h1>
+    </header>
+    <section>
+        @Html.Partial("_Register")
+    </section>
+
+</div>
