@@ -2889,6 +2889,7 @@
     <Content Include="Views\MembersOnly.cshtml" />
     <Content Include="Views\MembersOnlyItem.cshtml" />
     <Content Include="Views\AccessDenied.cshtml" />
+    <Content Include="Views\Partials\_filter.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,4 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.Gallery>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using Umbraco.Core.Services;
+@using Umbraco.Core.PropertyEditors;
 
 @{
     Layout = "Master.cshtml";
@@ -18,12 +21,20 @@
         <!-- Filters -->
         <header>
             <h1>@Model.Title</h1>
-            <ul class="tabs">
-                <li><a href="#" data-tag="all" class="button active">All</a></li>
-                <li><a href="#" data-tag="people" class="button">People</a></li>
-                <li><a href="#" data-tag="place" class="button">Places</a></li>
-                <li><a href="#" data-tag="thing" class="button">Things</a></li>
-            </ul>
+
+            @{
+                IDataTypeService dataTypeService = Services.DataTypeService;
+                IDataType filterTags = dataTypeService.GetDataType(1144); // Change number to your id from the data types section in backoffice
+                ValueListConfiguration prevalues = (ValueListConfiguration)filterTags.Configuration;
+                <ul class="tabs">
+                    <li><a href="#" data-tag="all" class="button active">All</a></li>
+                    @foreach (ValueListConfiguration.ValueListItem item in prevalues.Items)
+                    {
+                        <li><a href="#" data-tag="@item.Value" class="button">@item.Value</a></li>
+                    }
+
+                </ul>
+            }
         </header>
 
         @{

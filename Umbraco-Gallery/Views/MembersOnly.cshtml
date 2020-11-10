@@ -1,5 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.MembersOnly>
 @using ContentModels = Umbraco.Web.PublishedModels;
+@using Umbraco.Core.Services;
+@using Umbraco.Core.PropertyEditors;
 @{
     Layout = "Master.cshtml";
 }
@@ -18,19 +20,26 @@
         <!-- Filters -->
         <header>
             <h1>@Model.Title</h1>
-            <ul class="tabs">
-                <li><a href="#" data-tag="all" class="button active">All</a></li>
-                <li><a href="#" data-tag="secret" class="button">Secret</a></li>
-                <li><a href="#" data-tag="dream" class="button">Dream</a></li>
-                <li><a href="#" data-tag="life" class="button">Life</a></li>
-            </ul>
+            @{
+                IDataTypeService dataTypeService = Services.DataTypeService;
+                IDataType filterTags = dataTypeService.GetDataType(1208); // Change number to your id from the data types section in backoffice
+                ValueListConfiguration prevalues = (ValueListConfiguration)filterTags.Configuration;
+                <ul class="tabs">
+                    <li><a href="#" data-tag="all" class="button active">All</a></li>
+                    @foreach (ValueListConfiguration.ValueListItem item in prevalues.Items)
+                    {
+                        <li><a href="#" data-tag="@item.Value" class="button">@item.Value</a></li>
+                    }
+
+                </ul>
+            }
         </header>
 
         @{
-     var selection = Umbraco.Content(Guid.Parse("0e984227-d526-465c-aaa7-390f89d6fa17"))
-     .Children()
-     .Where(x => x.IsVisible())
-     .OrderByDescending(x => x.CreateDate);
+            var selection = Umbraco.Content(Guid.Parse("0e984227-d526-465c-aaa7-390f89d6fa17"))
+              .Children()
+              .Where(x => x.IsVisible())
+              .OrderByDescending(x => x.CreateDate);
         }
 
         <div class="content">

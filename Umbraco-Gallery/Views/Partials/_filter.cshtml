@@ -1,0 +1,13 @@
+﻿@using Umbraco.Core.Services;
+@using Umbraco.Core.PropertyEditors;
+
+@{
+    IDataTypeService dataTypeService = Services.DataTypeService;
+    IDataType dataType = dataTypeService.GetDataType(1144); // Change number to your id from the data types section in backoffice
+    ValueListConfiguration prevalues = (ValueListConfiguration)dataType.Configuration;
+
+    foreach (ValueListConfiguration.ValueListItem item in prevalues.Items)
+    {
+        <p>@item.Value</p>
+    }
+}
