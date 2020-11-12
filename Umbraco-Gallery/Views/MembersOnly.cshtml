@@ -8,7 +8,7 @@
 
 @*Special header for the sub-pages*@
 <header id="header">
-    <div><span>@(Model.Root().Value<string>("title"))</span></div>
+    <div><span>@(Model.Root().Value<string>("title", fallback: Fallback.ToDefaultValue, defaultValue: Model.Name))</span></div>
 </header>
 
 <!-- Gallery -->
@@ -45,17 +45,19 @@
         }
 
         <div class="content">
-            @foreach (var item in selection)
+            @if (selection != null)
             {
-                var image = item.Value<IPublishedContent>("mainImage");
-                var thumb = item.Value<IPublishedContent>("thumbnail");
-                var cssFilter = @item.Value("mOItemType");
+                foreach (var item in selection)
+                {
+                    var image = item.Value<IPublishedContent>("mainImage");
+                    var thumb = item.Value<IPublishedContent>("thumbnail");
+                    var cssFilter = @item.Value("mOItemType");
 
-                <div class="media all @cssFilter">
-                    <a href="@image.Url"><img src="@thumb.Url" alt="" title="@item.Name" /></a>
-                </div>
+                    <div class="media all @cssFilter">
+                        <a href="@image.Url"><img src="@thumb.Url" alt="" title="@item.Name" /></a>
+                    </div>
+                }
             }
-
         </div>
     </div>
 </section>

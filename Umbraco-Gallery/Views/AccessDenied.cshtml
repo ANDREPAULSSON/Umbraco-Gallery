@@ -5,7 +5,7 @@
 }
 
 <header id="header">
-    <div><span>@(Model.Root().Value<string>("title"))</span></div>
+    <div><span>@(Model.Root().Value<string>("title", fallback: Fallback.ToDefaultValue, defaultValue: Model.Name))</span></div>
 </header>
 
 <div class="inner">
