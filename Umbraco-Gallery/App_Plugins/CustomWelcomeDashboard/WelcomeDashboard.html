@@ -9,16 +9,22 @@
             <h2>Recently edited..</h2>
             <ul class="unstyled">
                 <li ng-repeat="logEntry in vm.UserLogHistory.items">
-                    <i class="{{logEntry.Content.icon}}"></i> <a href="/Umbraco/#/{{logEntry.editUrl}}">{{logEntry.Content.name}} <span ng-if="logEntry.comment">- {{logEntry.comment}}</span></a> - <span class="text-muted">(Edited on: {{logEntry.timestamp  | date:'medium'}})</span>
+                    <i class="fa fa-cog" style="color: #f5c1bc; margin-right:.3em;"></i> <a href="/Umbraco/#/{{logEntry.editUrl}}">{{logEntry.Content.name}} <span ng-if="logEntry.comment">- {{logEntry.comment}}</span></a> - <span class="text-muted">(Edited on: {{logEntry.timestamp  | date:'medium'}})</span>
                 </li>
             </ul>
         </div>
     </div>
-    <div class="add-image-container">
-        <div class="toolbox-container">
-            <a class="btn btn-primary btn-large add-image" href="/umbraco/#/content/content/edit/1145?doctype=galleryItem&create=true">
+    <div class="toolbox-container">
+        <div class="toolbox">
+            <a class="add-image" href="/umbraco/#/content/content/edit/1145?doctype=galleryItem&create=true">
                 <i class="icon-add"></i>
-                <div class="add-image-text">Add new image to gallery</div>
+                <span>Gallery item</span>
+            </a>
+        </div>
+        <div class="toolbox">
+            <a class="add-image" href="/umbraco/#/content/content/edit/1174?doctype=membersOnlyItem&create=true">
+                <i class="icon-add"></i>
+                <span>MO Gallery item</span>
             </a>
         </div>
     </div>

@@ -29,45 +29,58 @@
 }
 .welcome-message a{
     font-weight: bold;
+    color: #f5c1bc;
     opacity: 0.7;
 }
 .recently-edited-container {
     background: #F8F8F8;
-    padding: 3em;
+    padding: 2em;
     margin-top: 1.5em;
-}
-.recently-edited {
-    padding: 10px;
-    margin-left: 1em;
-
 }
 .recently-edited h2{
     font-size: 1.5em;
     line-height: 1.6em;
     margin: 0px;
     font-weight: bold;
+    margin-bottom: .5em;
 }
 .recently-edited ul li{
     font-size: 1.1em;
     color: #666666;
     line-height: 1.6em;
 }
-.add-image-container {
-    margin-top: 1.5em;
-    display: flex;
-}
 .toolbox-container {
-    background: #F8F8F8;
-    padding: 2em;
+    margin-top: 1.5em;
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-column-gap: 1.5em;
 }
-.add-image-text{
-    margin-top: .3em;
+.toolbox {
+    background: #F8F8F8;
+    padding: 1.5em;
+}
+@media(max-width: 600px){
+    .toolbox-container{
+        max-width: 100%;
+    }
 }
 .add-image {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    padding: .8em;
+    transition: .2s ease;
+    font-size: 1em;
+    font-weight: 700;
+    background: #f5c1bc;
+    border: 2px solid transparent;
+    color: white;
+}
+.add-image:hover{
+    text-decoration: none;
+    border: 2px solid #363636;
 }
 .add-image i{
     font-size: 1.5em;
-    margin-right: .4em;
+    margin-bottom: .4em;
 }
