@@ -8,7 +8,7 @@
 
 @*Special header for the sub-pages*@
 <header id="header">
-    <div><span>@Model.Subtitle</span></div>
+    <div><span>@(Model.Root().Value<string>("title"))</span></div>
 </header>
 
 <!-- Gallery -->
@@ -23,15 +23,17 @@
             @{
                 IDataTypeService dataTypeService = Services.DataTypeService;
                 IDataType filterTags = dataTypeService.GetDataType(1208); // Change number to your id from the data types section in backoffice
-                ValueListConfiguration prevalues = (ValueListConfiguration)filterTags.Configuration;
-                <ul class="tabs">
-                    <li><a href="#" data-tag="all" class="button active">All</a></li>
-                    @foreach (ValueListConfiguration.ValueListItem item in prevalues.Items)
-                    {
-                        <li><a href="#" data-tag="@item.Value" class="button">@item.Value</a></li>
-                    }
-
-                </ul>
+                if (filterTags != null)
+                {
+                    ValueListConfiguration prevalues = (ValueListConfiguration)filterTags.Configuration;
+                    <ul class="tabs">
+                        <li><a href="#" data-tag="all" class="button active">All</a></li>
+                        @foreach (ValueListConfiguration.ValueListItem item in prevalues.Items)
+                        {
+                            <li><a href="#" data-tag="@item.Value" class="button">@item.Value</a></li>
+                        }
+                    </ul>
+                }
             }
         </header>
 

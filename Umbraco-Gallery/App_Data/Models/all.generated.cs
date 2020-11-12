@@ -6,8 +6,8 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "1c729c6d4a6b27b7")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "662cb34d5006edbc")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.5")]
 
 
 // FILE: models.generated.cs
@@ -202,7 +202,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>Gallery Item</summary>
 	[PublishedModel("galleryItem")]
-	public partial class GalleryItem : PublishedContentModel, IGalleryControls, IMainImageControls, ISEocontrols, IVisibilityControls
+	public partial class GalleryItem : PublishedContentModel, IGalleryControls, IMainImageControls, IVisibilityControls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -252,27 +252,6 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("thumbnail")]
 		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Thumbnail => global::Umbraco.Web.PublishedModels.MainImageControls.GetThumbnail(this);
-
-		///<summary>
-		/// Meta Description: Enter the meta description
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("metaDescription")]
-		public string MetaDescription => global::Umbraco.Web.PublishedModels.SEocontrols.GetMetaDescription(this);
-
-		///<summary>
-		/// Meta Keywords: Enter the keywords for this page
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("metaKeywords")]
-		public global::System.Collections.Generic.IEnumerable<string> MetaKeywords => global::Umbraco.Web.PublishedModels.SEocontrols.GetMetaKeywords(this);
-
-		///<summary>
-		/// Meta Name: Enter the meta name for this page
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
-		[ImplementPropertyType("metaName")]
-		public string MetaName => global::Umbraco.Web.PublishedModels.SEocontrols.GetMetaName(this);
 
 		///<summary>
 		/// Umbraco Navi Hide: Check this box if you want to hide this page from the navigation and search results.
@@ -782,7 +761,7 @@ namespace Umbraco.Web.PublishedModels
 
 	/// <summary>About</summary>
 	[PublishedModel("about")]
-	public partial class About : PublishedContentModel, IContactFormControls, IContentControls, IHeaderControls, INavigationIconControls
+	public partial class About : PublishedContentModel, IContactFormControls, IContentControls, IHeaderControls, INavigationIconControls, ISEocontrols, IVisibilityControls
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -846,6 +825,34 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("icon")]
 		public string Icon => global::Umbraco.Web.PublishedModels.NavigationIconControls.GetIcon(this);
+
+		///<summary>
+		/// Meta Description: Enter the meta description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("metaDescription")]
+		public string MetaDescription => global::Umbraco.Web.PublishedModels.SEocontrols.GetMetaDescription(this);
+
+		///<summary>
+		/// Meta Keywords: Enter the keywords for this page
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("metaKeywords")]
+		public global::System.Collections.Generic.IEnumerable<string> MetaKeywords => global::Umbraco.Web.PublishedModels.SEocontrols.GetMetaKeywords(this);
+
+		///<summary>
+		/// Meta Name: Enter the meta name for this page
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("metaName")]
+		public string MetaName => global::Umbraco.Web.PublishedModels.SEocontrols.GetMetaName(this);
+
+		///<summary>
+		/// Umbraco Navi Hide: Check this box if you want to hide this page from the navigation and search results.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
+		[ImplementPropertyType("umbracoNaviHide")]
+		public bool UmbracoNaviHide => global::Umbraco.Web.PublishedModels.VisibilityControls.GetUmbracoNaviHide(this);
 	}
 
 	// Mixin Content Type with alias "navigationIconControls"

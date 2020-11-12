@@ -8,7 +8,7 @@
 
 
 <header id="header">
-    <div><span>@Model.Subtitle</span></div>
+    <div><span>@(Model.Root().Value<string>("title"))</span></div>
 </header>
 
 <div class="inner">
