@@ -8,12 +8,13 @@
 
     Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js");
     Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js");
-
     Html.RequiresJs("/scripts/jquery.validate.min.js");
     Html.RequiresJs("/scripts/jquery.validate.unobtrusive.min.js");
     Html.RequiresJs("/scripts/jquery.unobtrusive-ajax.min.js");
+    Html.RequiresJs("/scripts/cookiealert.js");
 
     Html.RequiresCss("/umbraco/assets/css/main.css");
+    Html.RequiresCss("/umbraco/assets/css/cookiealert.css");
 
     Html.RequiresJs("/umbraco/assets/js/jquery.min.js");
     Html.RequiresJs("/umbraco/assets/js/jquery.poptrox.min.js");
@@ -30,7 +31,7 @@
 <html>
 <head>
     <title>@(Model.Value<string>("metaName"))</title>
-    <meta name ="description" content="@(Model.Value<string>("metaDescription"))" />
+    <meta name="description" content="@(Model.Value<string>("metaDescription"))" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -46,13 +47,20 @@
 
             @RenderBody()
 
-           
+
             @Html.Partial("/Views/Partials/_Footer.cshtml")
 
         </section>
     </div>
-
+    <div class="cookiealert" role="alert">
+        <div class="cookiealert-container">
+            <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <a href="http://cookiesandyou.com/" target="_blank">Learn more</a>
+            <br/>
+            <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
+                I agree
+            </button>
+        </div>
+    </div>
     @Html.RenderJsHere()
-
 </body>
 </html>

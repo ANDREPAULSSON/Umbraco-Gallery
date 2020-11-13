@@ -307,6 +307,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Umbraco\assets\css\canvasdesigner.css" />
+    <Content Include="Umbraco\assets\css\cookiealert.css" />
     <Content Include="Umbraco\assets\css\font-awesome.min.css" />
     <Content Include="Umbraco\assets\css\installer.css" />
     <Content Include="Umbraco\assets\css\main.css" />
