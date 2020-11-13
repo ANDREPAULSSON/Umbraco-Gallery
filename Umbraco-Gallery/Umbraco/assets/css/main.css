@@ -1564,6 +1564,17 @@ html, body {
 
 /* Main */
 
+.validation-summary-errors{
+	color: #ea4f4f;
+}
+	.validation-summary-errors ul{
+		list-style: none;
+		padding: 0;
+	}
+		.validation-summary-errors li{
+			padding:0;
+		}
+
 	#main {
 		background: #f1f1f1;
 		width: 100%;
