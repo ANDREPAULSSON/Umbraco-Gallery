@@ -2,12 +2,6 @@
 @using ClientDependency.Core.Mvc
 @{
     Layout = "Master.cshtml";
-
-    Html.EnableClientValidation();
-    Html.EnableUnobtrusiveJavaScript();
-
-    Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js");
-    Html.RequiresJs("/scripts/contactForm.js");
 }
 
 @*Special header for the sub-pages*@
@@ -23,6 +17,3 @@
 
     @Html.GetGridHtml(Model, "mainContent")
 </div>
-
-
-@{Html.RenderAction("RenderForm", "ContactSurface"); }

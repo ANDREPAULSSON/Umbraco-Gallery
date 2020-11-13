@@ -1,29 +1,33 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.Home>
+@using ClientDependency.Core.Mvc
 
 @{
     Layout = "Master.cshtml";
     var image = Model.Value<IPublishedContent>("mainImage");
-
 }
 
-    <!-- Banner -->
-    <section id="banner" style="background-image: url(@image.Url);
+<!-- Banner -->
+<section id="banner" style="background-image: url(@image.Url);
 ">
-        <div class="inner">
-            <h1>@Model.Title</h1>
-            <p>@Model.Subtitle</p>
-            <ul class="actions">
-                <li><a href="#galleries" class="button alt scrolly big">Continue</a></li>
-            </ul>
-            @{
-                var myUser = Membership.GetUser();
-                if (myUser != null)
-                {
-                    <span class="home-screen-user"><icon class="fa fa-user" style="margin-right:.3em;"></icon>@myUser.UserName</span>
-                }
+    <div class="inner">
+        <h1>@Model.Title</h1>
+        <p>@Model.Subtitle</p>
+        <ul class="actions">
+            <li><a href="#gallery" class="button alt scrolly big">Continue</a></li>
+        </ul>
+        @{
+            var myUser = Membership.GetUser();
+            if (myUser != null)
+            {
+                <span class="home-screen-user"><icon class="fa fa-user" style="margin-right:.3em;"></icon>@myUser.UserName</span>
             }
-        </div>
-    </section>
+        }
+    </div>
+</section>
+
+<div class="inner">
+    @Html.GetGridHtml(Model, "mainContent")
+</div>
 
 
-    @Html.Partial("/Views/Partials/_GalleryPreview.cshtml")
+

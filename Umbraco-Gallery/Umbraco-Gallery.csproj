@@ -2890,6 +2890,9 @@
     <Content Include="Views\MembersOnly.cshtml" />
     <Content Include="Views\AccessDenied.cshtml" />
     <Content Include="Views\Partials\_filter.cshtml" />
+    <Content Include="Views\MacroPartials\ContactForm.cshtml" />
+    <Content Include="Views\MacroPartials\GoogleMaps.cshtml" />
+    <Content Include="Views\MacroPartials\GalleryPreview.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

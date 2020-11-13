@@ -1,43 +1,40 @@
 ﻿@inherits UmbracoViewPage<Umbraco_Gallery.ViewModels.ContactViewModel>
 @using Umbraco_Gallery.Controllers
 
-<section id="contact">
-    <div class="column">
-        <h3>Get in touch</h3>
-        @using (Ajax.BeginForm("SubmitForm", "ContactSurface", new AjaxOptions()
-        {
-            UpdateTargetId = "form-result",
-            HttpMethod = "POST",
-            InsertionMode = InsertionMode.Replace,
-            OnSuccess = "contactForm.showResult",
-            OnFailure = "contactForm.showResult"
-        }, new { id = "contact-form" }))
-        {
 
-            @Html.HiddenFor(m => m.ContactFormId)
+@using (Ajax.BeginForm("SubmitForm", "ContactSurface", new AjaxOptions()
+{
+    UpdateTargetId = "form-result",
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    OnSuccess = "contactForm.showResult",
+    OnFailure = "contactForm.showResult"
+}, new { id = "contact-form" }))
+{
 
-            <div class="field half first">
-                <label for="name">Name</label>
-                @Html.ValidationMessageFor(m => m.Name)
-                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name" })
+    @Html.HiddenFor(m => m.ContactFormId)
 
-            </div>
-            <div class="field half">
-                <label for="email">Email</label>
-                @Html.ValidationMessageFor(m => m.Email)
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
-            </div>
-            <div class="field">
-                <label for="message">Message</label>
-                @Html.ValidationMessageFor(m => m.Message)
-                @Html.TextAreaFor(m => m.Message, new { @class = "form-control", placeholder = "Message", rows = "6" })
-            </div>
-            <ul class="actions">
-                <li><input value="Send Message" class="button contact-submit" type="submit"></li>
-            </ul>
-        }
+    <div class="field half first">
+        <label for="name">Name</label>
+        @Html.ValidationMessageFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name" })
 
-        <div id="form-result"></div>
     </div>
-</section>
+    <div class="field half">
+        <label for="email">Email</label>
+        @Html.ValidationMessageFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+    </div>
+    <div class="field">
+        <label for="message">Message</label>
+        @Html.ValidationMessageFor(m => m.Message)
+        @Html.TextAreaFor(m => m.Message, new { @class = "form-control", placeholder = "Message", rows = "6" })
+    </div>
+    <ul class="actions">
+        <li><input value="Send Message" class="button contact-submit" type="submit"></li>
+    </ul>
+}
+<div id="form-result"></div>
+
+
 
