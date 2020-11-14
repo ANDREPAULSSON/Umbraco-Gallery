@@ -6,8 +6,8 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "2dd77c3edbc1d4b1")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "ea953223851cfdde")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.7")]
 
 
 // FILE: models.generated.cs
@@ -62,14 +62,14 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Error Message: Enter the message to show on error
+		/// Error Message: Error message for contact form submit
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("errorMessage")]
 		public global::System.Web.IHtmlString ErrorMessage => global::Umbraco.Web.PublishedModels.ContactFormControls.GetErrorMessage(this);
 
 		///<summary>
-		/// Success Message: Enter the message to show on success
+		/// Success Message: Success message for contact form submit
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("successMessage")]
@@ -254,7 +254,7 @@ namespace Umbraco.Web.PublishedModels
 		public global::System.DateTime GalleryItemDate => global::Umbraco.Web.PublishedModels.GalleryControls.GetGalleryItemDate(this);
 
 		///<summary>
-		/// Gallery Item type: Select the corresponding type of the item.  e.g "place" if the item is a place  This is needed for jquery filter functionality .
+		/// Gallery Item type: This is needed for filter functionality .
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("GalleryItemType")]
@@ -424,7 +424,7 @@ namespace Umbraco.Web.PublishedModels
 		public static global::System.DateTime GetGalleryItemDate(IGalleryControls that) => that.Value<global::System.DateTime>("galleryItemDate");
 
 		///<summary>
-		/// Gallery Item type: Select the corresponding type of the item.  e.g "place" if the item is a place  This is needed for jquery filter functionality .
+		/// Gallery Item type: This is needed for filter functionality .
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("GalleryItemType")]
@@ -672,7 +672,7 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Error Message: Enter the message to show on error
+		/// Error Message: Error message for contact form submit
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("errorMessage")]
@@ -683,7 +683,7 @@ namespace Umbraco.Web.PublishedModels
 		public static global::System.Web.IHtmlString GetErrorMessage(IContactFormControls that) => that.Value<global::System.Web.IHtmlString>("errorMessage");
 
 		///<summary>
-		/// Success Message: Enter the message to show on success
+		/// Success Message: Success message for contact form submit
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("successMessage")]
@@ -806,14 +806,14 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Error Message: Enter the message to show on error
+		/// Error Message: Error message for contact form submit
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("errorMessage")]
 		public global::System.Web.IHtmlString ErrorMessage => global::Umbraco.Web.PublishedModels.ContactFormControls.GetErrorMessage(this);
 
 		///<summary>
-		/// Success Message: Enter the message to show on success
+		/// Success Message: Success message for contact form submit
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("successMessage")]
@@ -1117,7 +1117,7 @@ namespace Umbraco.Web.PublishedModels
 		public global::System.DateTime MOitemDate => global::Umbraco.Web.PublishedModels.MembersOnlyItemControls.GetMOitemDate(this);
 
 		///<summary>
-		/// MO Item Type
+		/// MO Item Type: This is needed for filter functionality .
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("mOItemType")]
@@ -1181,7 +1181,7 @@ namespace Umbraco.Web.PublishedModels
 		public static global::System.DateTime GetMOitemDate(IMembersOnlyItemControls that) => that.Value<global::System.DateTime>("mOItemDate");
 
 		///<summary>
-		/// MO Item Type
+		/// MO Item Type: This is needed for filter functionality .
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.9.0")]
 		[ImplementPropertyType("mOItemType")]
